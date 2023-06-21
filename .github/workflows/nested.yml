@@ -1,0 +1,21 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Nested
+
+on:
+  workflow_call:
+
+jobs:
+  root:
+    name: 'Nested'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Print Details
+        run: |
+            echo Nested workflow
+            echo "event_name: ${{ github.event_name }}"
+            echo "github.event.pull_request.base.ref: ${{ github.event.pull_request.base.ref }}"
+            echo "base_ref: ${{ github.base_ref }}"
+            echo "ref_name: ${{ github.ref_name }}"
