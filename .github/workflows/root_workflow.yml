@@ -18,11 +18,12 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: Print Details
-        run: echo Root workflow
-        run: echo "event_name: ${{ github.event_name }}"
-        run: echo "github.event.pull_request.base.ref: ${{ github.event.pull_request.base.ref }}"
-        run: echo "base_ref: ${{ github.base_ref }}"
-        run: echo "ref_name: ${{ github.ref_name }}"
+        run: |
+            echo Root workflow
+            echo "event_name: ${{ github.event_name }}"
+            echo "github.event.pull_request.base.ref: ${{ github.event.pull_request.base.ref }}"
+            echo "base_ref: ${{ github.base_ref }}"
+            echo "ref_name: ${{ github.ref_name }}"
         
   nested:
     name: 'Nested'
