@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: Root
 
 on:
   workflow_dispatch:
@@ -12,7 +12,7 @@ on:
 
 jobs:
   root:
-    name: 'Root'
+    name: 'Print Details'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -26,5 +26,5 @@ jobs:
             echo "ref_name: ${{ github.ref_name }}"
         
   nested:
-    name: 'Nested'
+    name: 'Call Nested'
     uses: valeriyr/actions_test/.github/workflows/nested.yml@main
