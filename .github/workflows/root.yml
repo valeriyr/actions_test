@@ -6,9 +6,9 @@ on:
   workflow_dispatch:
 
   pull_request:
-    branches: [main, test_branch]
+    branches: [main, test-branch]
   push:
-    branches: [main, test_branch]
+    branches: [main, test-branch]
 
 jobs:
   root:
