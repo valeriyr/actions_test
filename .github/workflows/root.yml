@@ -1,18 +1,18 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: Root
 
 on:
   workflow_dispatch:
 
   pull_request:
-    branches: [main]
+    branches: [main, test-branch]
   push:
-    branches: [main]
+    branches: [main, test-branch]
 
 jobs:
   root:
-    name: 'Root'
+    name: 'Print Details'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -24,7 +24,8 @@ jobs:
             echo "github.event.pull_request.base.ref: ${{ github.event.pull_request.base.ref }}"
             echo "base_ref: ${{ github.base_ref }}"
             echo "ref_name: ${{ github.ref_name }}"
+            echo "${{ github.base_ref == 'main' || github.ref_name == 'main' }}"
         
   nested:
-    name: 'Nested'
+    name: 'Call Nested'
     uses: valeriyr/actions_test/.github/workflows/nested.yml@main

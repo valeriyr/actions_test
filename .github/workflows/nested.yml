@@ -7,7 +7,7 @@ on:
 
 jobs:
   root:
-    name: 'Nested'
+    name: 'Print Details'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -19,3 +19,4 @@ jobs:
             echo "github.event.pull_request.base.ref: ${{ github.event.pull_request.base.ref }}"
             echo "base_ref: ${{ github.base_ref }}"
             echo "ref_name: ${{ github.ref_name }}"
+            echo "${{ github.base_ref == 'main' || github.ref_name == 'main' }}"
